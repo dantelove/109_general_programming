@@ -16,7 +16,9 @@ def manual_reverse(str)
         str.pop
     end
     
-    p new_string
+    joined_string = new_string.join(" ")
+    
+    p joined_string
 end
 
 manual_reverse("This is a longer string.")
