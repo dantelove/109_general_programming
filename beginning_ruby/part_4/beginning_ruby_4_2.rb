@@ -13,18 +13,21 @@
 
 def fizzbuzz(num1, num2)
     numbers = num1..num2
+    fizzbuzz_array = []
     numbers.each do |x|
         case
         when x % 3 == 0 && x % 5 == 0
-            puts "FizzBuzz"
+            fizzbuzz_array << "FizzBuzz"
         when x % 3 == 0
-            puts "Fizz"
+            fizzbuzz_array << "Fizz"
         when x % 5 == 0
-            puts "Buzz"
+            fizzbuzz_array << "Buzz"
         else
-            puts x
+            fizzbuzz_array << x
         end
     end
+
+    p fizzbuzz_array.join(", ")
 end
 
-fizzbuzz(1, 20)
+fizzbuzz(1, 15)
