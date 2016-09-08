@@ -32,9 +32,10 @@ def remove_vowels(array)
       x == "o" ||
       x == "u"
     end
+    letter.join("")
   end
 
   split_word
 end
 
-remove_vowels(words_array)
+p remove_vowels(words_array)
