@@ -12,9 +12,10 @@ def is_prime?(num)
   range = (2..(num - 1)).to_a
   range.select do |x|
     return false if num % x == 0
-    return true
   end
+  return true #moved the this return to solve is_prime?(2) while watching video
 end
 
 p is_prime?(3)
 p is_prime?(4)
+p is_prime?(2)
