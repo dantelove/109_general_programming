@@ -9,8 +9,7 @@
 #This is my attempt before watching the walkthrough
 
 def is_prime?(num)
-  range = (2..(num - 1)).to_a
-  range.select do |x|
+  (2..(num - 1)).select do |x| #refactored to remove range variable
     return false if num % x == 0
   end
   return true #moved the this return to solve is_prime?(2) while watching video
