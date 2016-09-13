@@ -1,4 +1,4 @@
-# watch_others_code1_1.rb
+# watch_others_code1_a.rb
 
 # Write a method that will determine whether an integer is a prime.
 # Don't use the prime classe.

@@ -1,4 +1,4 @@
-# watch_others_code1_2.rb
+# watch_others_code1_c.rb
 
 # Write a method that will determine whether an integer is a prime.
 # Don't use the prime classe.
@@ -24,8 +24,6 @@ end
 # select_primes ([1, 2, 3, 4, 5] => [2, 3])
 # select_primes ([4,6,8,10]) => []
 
-#This is my attempt before watching the walkthrough
-
 #Not sure what to do about 1.
 
 array1 = [1, 2, 3, 4]
@@ -35,5 +33,23 @@ def select_primes(array)
   array.select { |num| is_prime?(num) }
 end
 
-p select_primes(array1)
-p select_primes(array2)
+# p select_primes(array1)
+# p select_primes(array2)
+
+# Write a method that will take an array of numbers and return the number of 
+# primes in the array.
+
+#This is my attempt before watching the walkthough.
+
+def count_primes(array)
+  count = 0
+  array.each do |num|
+    if is_prime?(num)
+      count += 1
+    end
+  end
+  return count
+end
+
+p count_primes([1, 2, 3, 4]) #=> 2
+p count_primes([4, 6, 8, 10]) #=> 0
