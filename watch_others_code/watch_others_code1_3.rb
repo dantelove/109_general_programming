@@ -15,8 +15,8 @@
 def interweave(array1, array2)
   interwoven_array = []
   array1.count.times do
-  interwoven_array << array1.shift
-  interwoven_array << array2.shift
+    interwoven_array << array1.shift
+    interwoven_array << array2.shift
   end
   interwoven_array
 end
