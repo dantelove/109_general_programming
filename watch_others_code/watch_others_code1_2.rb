@@ -39,13 +39,13 @@ when 's'
   (1..integer).each do |x|
     sum += x
   end
-  prompt "The sum of the integers between 1 and #{integer} is #{sum}."
+  prompt("The sum of the integers between 1 and #{integer} is #{sum}.")
 when 'p'
   sum = 1
   (1..integer).each do |x|
     sum *= x
   end
-  prompt "The products of the integers between 1 and #{integer} is #{sum}."
+  prompt("The products of the integers between 1 and #{integer} is #{sum}.")
 else
   prompt("Please enter 's' or 'p'.")
 end
