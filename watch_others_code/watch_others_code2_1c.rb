@@ -61,3 +61,4 @@ end
 
 puts palindromes("hamatat")
 puts palindromes("teselel")
+puts palindromes("ppop")
