@@ -47,7 +47,7 @@ def substrings(string)
   substring_array
 end
 
-# Attempt to reFactor code
+# Attempt to refactor code
 
 # def substrings(string)
 #   beg_idx = 0
