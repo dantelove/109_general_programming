@@ -47,6 +47,32 @@ def substrings(string)
   substring_array
 end
 
+# Attempt to reFactor code
+
+# def substrings(string)
+#   beg_idx = 0
+#   end_idx = 1
+#   reduce_length = 1
+#   substring_array = []
+#   length = string.split("").count
+
+#   loop do
+
+#     (length - reduce_length).times do
+#       substring_array << string[beg_idx..end_idx]
+#       end_idx += 1
+#     end
+
+#     beg_idx += 1
+#     end_idx += 1
+#     reduce_length += 1
+
+#     break if reduce_length > 5
+#   end
+
+#   substring_array.uniq
+# end
+
 # p substring("honey", 0, 2) # => "hon"
 # p substring("honey", 1, 2) # => "on"
 # p substring("honey", 3, 9) # => "ey"
