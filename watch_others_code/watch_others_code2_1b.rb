@@ -47,29 +47,6 @@ def substrings(string)
   substring_array
 end
 
-
-# def substrings(string)
-#   end_idx = 1
-#   substring_array = []
-#   string.split("").count.times do
-#     substring_array << string[0..end_idx]
-#     end_idx += 1
-#   end
-
-#   substring_array.pop
-
-#   beg_idx = 1
-#   length = string.split("").count
-#   (length - 1).times do
-#     substring_array << string[beg_idx..end_idx]
-#     beg_idx += 1
-#   end
-
-#   substring_array.pop
-
-#   substring_array
-# end
-
 # p substring("honey", 0, 2) # => "hon"
 # p substring("honey", 1, 2) # => "on"
 # p substring("honey", 3, 9) # => "ey"
