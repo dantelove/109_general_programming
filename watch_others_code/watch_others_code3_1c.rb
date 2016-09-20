@@ -1,4 +1,4 @@
-# watch_others_code3_1b.rb
+# watch_others_code3_1c.rb
 
 # Write a method that returns the correct value.
 
@@ -36,6 +36,10 @@ def computer(english)
       result += NUM_VALUES[operation[n + 1]]
     when "minus"
       result -= NUM_VALUES[operation[n + 1]]
+    when "times"
+      result *= NUM_VALUES[operation[n + 1]]
+    when "divided"
+      result /= NUM_VALUES[operation[n + 2]]
     end
     n += 1
   end
@@ -48,3 +52,6 @@ p computer("seven minus six") # => 1
 p computer("zero plus eight") # => 8
 p computer("two plus two minus three") # =>1
 p computer("three minus one plus five minus 4 plus six plus 10 minus 4") # =>15
+p computer("eight times four plus six divided by two minus two") # => 17; not 33
+p computer("one plus four times two minus two") # => 8, not 7
+p computer("nine divided by three times six") # => 18
