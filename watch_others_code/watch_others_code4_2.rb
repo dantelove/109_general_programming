@@ -21,7 +21,7 @@ def friday_13th?(year)
   month = 1
 
   11.times do 
-  day = Date.new(year, month, 13)
+    day = Date.new(year, month, 13)
 
     if day.friday?
       counter += 1
