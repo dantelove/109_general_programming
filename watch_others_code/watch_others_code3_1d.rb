@@ -12,39 +12,6 @@ NUM_VALUES = {
               "6"=>6.0, "7"=>7.0, "8"=>8.0, "9"=>9.0, "10"=>10.0
 }
 
-# def computer(english)
-#   operation = english.split(" ")
-
-#   case operation[1]
-#   when "plus"
-#     NUM_VALUES[operation[0]] + NUM_VALUES[operation[2]]
-#   when "minus"
-#     NUM_VALUES[operation[0]] - NUM_VALUES[operation[2]]
-#   end
-# end
-
-# def computer(english)
-#   operation = english.split(" ")
-#   result = NUM_VALUES[operation[0]]
-#   n = 0
-
-#   operation.size.times do 
-#     case operation[n]
-#     when "times"
-#       result *= NUM_VALUES[operation[n + 1]]
-#     when "divided"
-#       result /= NUM_VALUES[operation[n + 2]]
-#     when "plus"
-#       result += NUM_VALUES[operation[n + 1]]
-#     when "minus"
-#       result -= NUM_VALUES[operation[n + 1]]
-#     end
-#     n += 1
-#   end
-
-# result
-# end
-
 def words_to_integers(english)
   operation = english.split(" ")
   result = []
@@ -102,7 +69,7 @@ def product(array)
 end
 
 def sum(array)
-   n = 0
+  n = 0
 
   loop do 
   break unless array.include?(:+)
@@ -150,11 +117,6 @@ p computer("seven minus six") # => 1
 p computer("zero plus eight") # => 8
 p computer("two plus two minus three") # =>1
 p computer("three minus one plus five minus 4 plus six plus 10 minus 4") # =>15
-
-# # p computer("eight times four plus six divided by two minus two") # => 17; not 33
-# # p computer("one plus four times two minus two") # => 8, not 7
-# # p computer("nine divided by three times six") # => 18
-
 p computer("eight times four plus six divided by two minus two") # => 33
 p computer("one plus four times two minus two") # => 7
 p computer("nine divided by three times six")   # => 18
