@@ -7,11 +7,11 @@
 require 'pry'
 
 NUM_VALUES = {
-              "zero"=> 0, "one"=>1, "two"=>2, "three"=>3, 
-              "four"=>4,"five"=>5, "six"=>6, "seven"=>7, 
-              "eight"=>8,"nine"=>9, "ten"=>10,
-              "0"=>0, "1"=>1, "2"=>2, "3"=>3, "4"=>4,"5"=>5, 
-              "6"=>6, "7"=>7, "8"=>8, "9"=>9, "10"=>10
+              "zero"=> 0.0, "one"=>1.0, "two"=>2.0, "three"=>3.0, 
+              "four"=>4.0,"five"=>5.0, "six"=>6.0, "seven"=>7.0, 
+              "eight"=>8.0,"nine"=>9.0, "ten"=>10.0,
+              "0"=>0.0, "1"=>1.0, "2"=>2.0, "3"=>3.0, "4"=>4.0,"5"=>5.0, 
+              "6"=>6.0, "7"=>7.0, "8"=>8.0, "9"=>9.0, "10"=>10.0
 }
 
 # def computer(english)
@@ -136,21 +136,15 @@ end
 def computer(english)
   operation = words_to_integers(english)
 
-  binding.pry
-
   quotient(operation)
 
   product(operation)
 
-  sum(operation)
-
-  binding.pry
-
   difference(operation)
 
-  binding.pry
+  sum(operation)
 
-  operation
+  operation[0].to_i
 end
 
 p computer("two plus two")    # => 4
@@ -174,4 +168,4 @@ p computer("nine divided by three times six") # => 18
 # what if you just tried to reorder the array before iterating on it.
 # you can do it in order. What if you just put the array in the right order?
 
-p computer("six divided by one minus two")
+p computer("six divided by one minus two") # => 4
