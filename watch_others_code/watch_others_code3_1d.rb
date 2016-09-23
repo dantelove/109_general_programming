@@ -4,8 +4,6 @@
 
 # This is my attempt before watching the walkthrough.
 
-require 'pry'
-
 NUM_VALUES = {
               "zero"=> 0.0, "one"=>1.0, "two"=>2.0, "three"=>3.0, 
               "four"=>4.0,"five"=>5.0, "six"=>6.0, "seven"=>7.0, 
@@ -164,8 +162,4 @@ p computer("seven plus four divided by two")    # => 9
 p computer("seven times four plus one divided by three minus two") # => 26
 p computer("one plus four times three divided by two minus two")   # => 5
 p computer("nine divided by three times six") # => 18
-
-# what if you just tried to reorder the array before iterating on it.
-# you can do it in order. What if you just put the array in the right order?
-
 p computer("six divided by one minus two") # => 4
