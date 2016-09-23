@@ -74,51 +74,69 @@ def words_to_integers(english)
 end
 
 def quotient(array)
-  quotient_array = array.take(3) if array[1] == :/
+  n = 0
 
-  quotient = quotient_array[0] / quotient_array[2]
+  loop do 
+  break unless array.include?(:/)
+    n = array.find_index(:/)
+    quotient = array[n - 1] / array[n + 1]
+    array[n] = quotient
+    array.delete_at(n - 1)
+    array.delete_at(n)
+  end
 
-  3.times { array.shift }
-
-  array.unshift(quotient)
+  array
 end
 
 def product(array)
-  product_array = array.take(3) if array[1] == :*
+  n = 0
 
-  if product_array.empty?
-    
-  else
-    product = product_array[0] * product_array[2]
-    3.times { array.shift }
-    array.unshift(product)
+  loop do 
+  break unless array.include?(:*)
+    n = array.find_index(:*)
+    product = array[n - 1] * array[n + 1]
+    array[n] = product
+    array.delete_at(n - 1)
+    array.delete_at(n)
   end
+
   array
 end
 
 def sum(array)
-  sum_array = array.take(3) if array[1] = :+
+   n = 0
 
-  if sum_array.!empty?
-    sum = sum_array[0] + product_array[2]
-    3.times { array.shift }
-    array.unshift(sum)
+  loop do 
+  break unless array.include?(:+)
+    n = array.find_index(:+)
+    sum = array[n - 1] + array[n + 1]
+    array[n] = sum
+    array.delete_at(n - 1)
+    array.delete_at(n)
   end
+
   array
 end
 
 def difference(array)
-  difference_array = array.take(3) if array[1] = :-
+  n = 0
 
-  difference = difference_array[0] + difference_array[2]
+  loop do 
+  break unless array.include?(:-)
+    n = array.find_index(:-)
+    difference = array[n - 1] - array[n + 1]
+    array[n] = difference
+    array.delete_at(n - 1)
+    array.delete_at(n)
+  end
 
-  3.times { array.shift }
-
-  array.unshift(difference)
+  array
 end
 
 def computer(english)
   operation = words_to_integers(english)
+
+  binding.pry
 
   quotient(operation)
 
@@ -126,32 +144,34 @@ def computer(english)
 
   sum(operation)
 
+  binding.pry
+
   difference(operation)
+
+  binding.pry
 
   operation
 end
 
-
-
-# p computer("two plus two")    # => 4
-# p computer("seven minus six") # => 1
-# p computer("zero plus eight") # => 8
-# p computer("two plus two minus three") # =>1
-# p computer("three minus one plus five minus 4 plus six plus 10 minus 4") # =>15
+p computer("two plus two")    # => 4
+p computer("seven minus six") # => 1
+p computer("zero plus eight") # => 8
+p computer("two plus two minus three") # =>1
+p computer("three minus one plus five minus 4 plus six plus 10 minus 4") # =>15
 
 # # p computer("eight times four plus six divided by two minus two") # => 17; not 33
 # # p computer("one plus four times two minus two") # => 8, not 7
 # # p computer("nine divided by three times six") # => 18
 
-# p computer("eight times four plus six divided by two minus two") # => 33
-# p computer("one plus four times two minus two") # => 7
-# p computer("nine divided by three times six")   # => 18
-# p computer("seven plus four divided by two")    # => 9
-# p computer("seven times four plus one divided by three minus two") # => 26
-# p computer("one plus four times three divided by two minus two")   # => 5
-# p computer("nine divided by three times six") # => 18
+p computer("eight times four plus six divided by two minus two") # => 33
+p computer("one plus four times two minus two") # => 7
+p computer("nine divided by three times six")   # => 18
+p computer("seven plus four divided by two")    # => 9
+p computer("seven times four plus one divided by three minus two") # => 26
+p computer("one plus four times three divided by two minus two")   # => 5
+p computer("nine divided by three times six") # => 18
 
 # what if you just tried to reorder the array before iterating on it.
 # you can do it in order. What if you just put the array in the right order?
 
-p computer("six divided by three minus two")
+p computer("six divided by one minus two")
