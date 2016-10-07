@@ -12,18 +12,26 @@
 # method from the previous exercise.
 
 
-def rotate_array(array)
-  array[1..-1] + [array[0]]
-end
+# def rotate_array(array)
+#   array[1..-1] + [array[0]]
+# end
 
-def rotate_rightmost_digits(num1, num2)
-  array = num1.to_s.chars[0..-(num2 + 1)] + rotate_array(num1.to_s.chars.last(num2))
+# def rotate_rightmost_digits(num1, num2)
+#   array = num1.to_s.chars[0..-(num2 + 1)] + rotate_array(num1.to_s.chars.last(num2))
 
-  array.join.to_i
-end
+#   array.join.to_i
+# end
 
 def max_rotation(num)
-  
+  result = []
+
+
+  num.to_s.size.times do 
+    result << num.to_s.chars.rotate.reverse.pop
+    
+  end
+
+  result
 end
 
 p max_rotation(735291) #== 321579
