@@ -24,22 +24,6 @@ a = (1..1000).to_a
 
 h = Hash[a.collect {|item| [item, true]}]
 
-# 1000.times do
-#   h.each do |k,v|
-#     if k.even?
-#       h[k] = false if h[k] = true
-#       h[k] = true if h[k] = false
-#     end
-#   end
-
-#   h.each do |k,v|
-#     if k % 3 == 0
-#       h[k] = false if h[k] = true
-#       h[k] = true if h[k] = false
-#     end
-#   end
-# end
-
 n = 2
 
 1000.times do 
