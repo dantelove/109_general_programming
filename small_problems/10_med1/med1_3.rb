@@ -25,17 +25,21 @@
 def max_rotation(num)
   result = []
 
+  a = num.to_s.chars.rotate.reverse
 
-  num.to_s.size.times do 
-    result << num.to_s.chars.rotate.reverse.pop
-    
+  result << a.pop
+
+  loop do 
+    break if a.empty?
+    a = a.reverse.rotate.reverse
+    result << a.pop
   end
 
-  result
+ result.join.to_i
 end
 
-p max_rotation(735291) #== 321579
-p max_rotation(3) #== 3
-p max_rotation(35) #== 53
-p max_rotation(105) #== 15 # the leading zero gets dropped
-p max_rotation(8_703_529_146) #== 7_321_609_845
+p max_rotation(735291) == 321579
+p max_rotation(3) == 3
+p max_rotation(35) == 53
+p max_rotation(105) == 15 # the leading zero gets dropped
+p max_rotation(8_703_529_146) == 7_321_609_845
