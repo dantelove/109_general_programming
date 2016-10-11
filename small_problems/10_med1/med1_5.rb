@@ -6,21 +6,21 @@
 
 def diamond(num)
   stars = 1
-  spaces = num - 2
-  num.times do
+  spaces = (num - 1)/2
+  loop do
     break if spaces < 0
-    puts " "*(spaces/2 + 1) + "*"*stars + " "*(spaces/2 + 1)
+    puts " "*spaces + "*"*stars + " "*spaces
     stars += 2
-    spaces -= 2
+    spaces -= 1
   end
-
-  stars = num - 4
-  spaces = 2
-  num.times do
+ 
+  stars = num - 2
+  spaces = 1
+  loop do 
     break if stars < 0
-    puts " "*(spaces/2 + 1) + "*"*stars + " "*(spaces/2 + 1)
+    puts " "*spaces + "*"*stars + " "*spaces
     stars -= 2
-    spaces += 2
+    spaces += 1
   end
 end
 
