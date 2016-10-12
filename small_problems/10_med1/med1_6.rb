@@ -45,14 +45,26 @@
 # You should initialize the register to 0.
 
 def minilang(string)
-  register = [0]
+  register = 0
+  stack = []
 
-  str_to_num(string)
+  array = str_to_num(string)
+
+  array.each do |x|
+    register = x unless x.to_i == 0
+    puts register if x == "PRINT"
+    stack << register if x == "PUSH"
+    register *= stack.pop if x == "MULT"
+    register += stack.pop if x == "ADD"
+    register = stack.pop if x == "POP"
+    register /= stack.pop if x == "DIV"
+    register %= stack.pop if x == "MOD"
+    register -= stack.pop if x == "SUB"
+  end
 end
 
 def str_to_num(string)
-  stack = []
-  results = 0
+  results = []
 
   split_string = string.split(" ")
 
@@ -64,54 +76,37 @@ def str_to_num(string)
     end
   end
 
-  results.each do |obj|
-    case obj
-    when "n"    then #do something
-    when "PUSH" then #do soemthing
-    when "ADD"  then #do something
-    when "SUB"  then #do soemthing
-    when "MULT" then #do something
-    when "DIV"  then #do soemthing
-    when "MOD"  then #do something
-    when "POP"  then #do something
-    when "PRINT"then #do something
-    else             #do something
-    end
-  end
+  results
 end
 
-def operation(array)
-
-end
-
-p minilang('PRINT')
+minilang('PRINT')
 # 0
 
-p minilang('5 PUSH 3 MULT PRINT')
+minilang('5 PUSH 3 MULT PRINT')
 # 15
 
-p minilang('5 PRINT PUSH 3 PRINT ADD PRINT')
+minilang('5 PRINT PUSH 3 PRINT ADD PRINT')
 # 5
 # 3
 # 8
 
-p minilang('5 PUSH POP PRINT')
-# 5
+minilang('5 PUSH POP PRINT')
+# # 5
 
-p minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT')
-# 5
-# 10
-# 4
-# 7
+minilang('3 PUSH 4 PUSH 5 PUSH PRINT ADD PRINT POP PRINT ADD PRINT')
+# # 5
+# # 10
+# # 4
+# # 7
 
-p minilang('3 PUSH PUSH 7 DIV MULT PRINT ')
-# 6
+minilang('3 PUSH PUSH 7 DIV MULT PRINT ')
+# # 6
 
-p minilang('4 PUSH PUSH 7 MOD MULT PRINT ')
-# 12
+minilang('4 PUSH PUSH 7 MOD MULT PRINT ')
+# # 12
 
-p minilang('-3 PUSH 5 SUB PRINT')
-# 8
+minilang('-3 PUSH 5 SUB PRINT')
+# # 8
 
-p minilang('6 PUSH')
-# (nothing printed; no PRINT commands)
+minilang('6 PUSH')
+# # (nothing printed; no PRINT commands)
