@@ -3,31 +3,6 @@
 # Modify your transpose method from the previous exercise so it works with any 
 # matrix with at least 1 row and 1 column.
 
-# def transpose(matrix)
-#   new_matrix = []
-#   n = 0
-
-#   loop do
-#     matrix.each do |array|
-#       new_matrix << array[n]
-#     end
-
-#     break if n == matrix.size - 1
-#     n += 1
-#   end
-
-#   new_matrix.each_slice(3).to_a
-# end
-
-# def transpose(matrix)
-#   result = []
-#     (0..2).each do |column_index|
-#       new_row = (0..2).map { |row_index| matrix[row_index][column_index] }
-#       result << new_row
-#     end
-#   result
-# end
-
 def transpose(array)
   new_width = array.size
   new_height = array[0].size
