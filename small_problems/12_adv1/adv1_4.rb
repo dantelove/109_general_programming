@@ -1,47 +1,68 @@
 # adv1_4.rb
 
-# Write a method that takes an arbitrary matrix and rotates it 90 degrees 
-# clockwise as shown above.
+# Modify your transpose method from the previous exercise so it works with any 
+# matrix with at least 1 row and 1 column.
 
-def rotate90(array)
-  matrix_width = array[0].size
-  matrix_height = array.size
-  new_matrix_width = matrix_height
-  new_matrix_height = matrix_width
-  results_array = []
-  m = 0
+# def transpose(matrix)
+#   new_matrix = []
+#   n = 0
 
-  new_matrix_height.times do 
-    results = []
-    n = -1
-    
-    array.count.times do 
-      results << array[n][m]
-      n -=1
+#   loop do
+#     matrix.each do |array|
+#       new_matrix << array[n]
+#     end
+
+#     break if n == matrix.size - 1
+#     n += 1
+#   end
+
+#   new_matrix.each_slice(3).to_a
+# end
+
+# def transpose(matrix)
+#   result = []
+#     (0..2).each do |column_index|
+#       new_row = (0..2).map { |row_index| matrix[row_index][column_index] }
+#       result << new_row
+#     end
+#   result
+# end
+
+def transpose(array)
+  new_width = array.size
+  new_height = array[0].size
+  results = []
+  n = 0
+
+  if new_width == 1 || new_height == 1
+    if new_height >= new_width
+      new_height.times do
+        results << [array[0].shift]
+      end
+    else
+      new_height.times do
+        array = array.flatten
+        results << array
+      end
+    end
+  else
+    loop do
+      array.each do |arr|
+      results << arr[n]
     end
 
-    results_array << results
-    m += 1
+    break if n == new_height - 1
+     n += 1
   end
 
-  results_array
+    results = results.each_slice(3).to_a
+  end
+
+  results
 end
 
-matrix1 = [
-  [1, 5, 8],
-  [4, 7, 2],
-  [3, 9, 6]
-]
-
-matrix2 = [
-  [3, 7, 4, 2],
-  [5, 1, 0, 8]
-]
-
-new_matrix1 = rotate90(matrix1)
-new_matrix2 = rotate90(matrix2)
-new_matrix3 = rotate90(rotate90(rotate90(rotate90(matrix2))))
-
-p new_matrix1 == [[3, 4, 1], [9, 7, 5], [6, 2, 8]]
-p new_matrix2 == [[5, 3], [1, 7], [0, 4], [8, 2]]
-p new_matrix3 == matrix2
+p transpose([[1, 2, 3, 4]]) == [[1], [2], [3], [4]]
+p transpose([[1], [2], [3], [4]]) == [[1, 2, 3, 4]]
+p transpose([[1, 2, 3, 4, 5], [4, 3, 2, 1, 0], [3, 7, 8, 6, 2]]) ==
+   [[1, 4, 3], [2, 3, 7], [3, 2, 8], [4, 1, 6], [5, 0, 2]]
+p transpose([[1]]) == [[1]]

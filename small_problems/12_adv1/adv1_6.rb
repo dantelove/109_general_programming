@@ -1,25 +1,40 @@
-# adv1_6
+# adv1_6.rb
 
-# Find and fix the bug, then explain why the buggy program printed the 
-# results it did.
+# Write a method that takes an Array, and returns an Array of Arrays that 
+# represent the permutations of the original Array. The order of the 
+# permutations does not matter. You may not use the Array#permutations method 
+# nor any other standard method that is meant to generate permutations -- 
+# please devise your own way of generating the permutations.
 
-def my_method(array)
-  if array.size == 1
-    [7 * array.first]
-  elsif array.size > 1
-    array.map do |value|
-      value * value
-    end
-  else
-    []
+# For simplicity, you may assume that each element of the array has a 
+# unique value.
+
+def permutations(array)
+  results = []
+
+  1000.times do 
+    premutation = array.shuffle
+    results << array << premutation
   end
+
+  results.uniq.sort
 end
 
-p my_method([]) == []
-p my_method([3]) == [21]
-p my_method([3, 4]) == [9, 16]
-p my_method([5, 6, 7]) == [25, 36, 49]
+p permutations([2])
+# -> [[2]]
 
-# The way the solution was set up before the 'else' condition never came into
-# play because an array can only be empty or not empty - there is nothing 'else'.
+p permutations([1, 2])
+# -> [[1, 2], [2, 1]]
 
+p permutations([1, 2, 3])
+# -> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+
+p permutations([1, 2, 3, 4])
+# -> [[1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4],
+#     [1, 3, 4, 2], [1, 4, 2, 3], [1, 4, 3, 2],
+#     [2, 1, 3, 4], [2, 1, 4, 3], [2, 3, 1, 4],
+#     [2, 3, 4, 1], [2, 4, 1, 3], [2, 4, 3, 1],
+#     [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4],
+#     [3, 2, 4, 1], [3, 4, 1, 2], [3, 4, 2, 1],
+#     [4, 1, 2, 3], [4, 1, 3, 2], [4, 2, 1, 3],
+#     [4, 2, 3, 1], [4, 3, 1, 2], [4, 3, 2, 1]]

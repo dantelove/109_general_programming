@@ -1,40 +1,47 @@
 # adv1_5.rb
 
-# Write a method that takes an Array, and returns an Array of Arrays that 
-# represent the permutations of the original Array. The order of the 
-# permutations does not matter. You may not use the Array#permutations method 
-# nor any other standard method that is meant to generate permutations -- 
-# please devise your own way of generating the permutations.
+# Write a method that takes an arbitrary matrix and rotates it 90 degrees 
+# clockwise as shown above.
 
-# For simplicity, you may assume that each element of the array has a 
-# unique value.
+def rotate90(array)
+  matrix_width = array[0].size
+  matrix_height = array.size
+  new_matrix_width = matrix_height
+  new_matrix_height = matrix_width
+  results_array = []
+  m = 0
 
-def permutations(array)
-  results = []
+  new_matrix_height.times do 
+    results = []
+    n = -1
+    
+    array.count.times do 
+      results << array[n][m]
+      n -=1
+    end
 
-  1000.times do 
-    premutation = array.shuffle
-    results << array << premutation
+    results_array << results
+    m += 1
   end
 
-  results.uniq.sort
+  results_array
 end
 
-p permutations([2])
-# -> [[2]]
+matrix1 = [
+  [1, 5, 8],
+  [4, 7, 2],
+  [3, 9, 6]
+]
 
-p permutations([1, 2])
-# -> [[1, 2], [2, 1]]
+matrix2 = [
+  [3, 7, 4, 2],
+  [5, 1, 0, 8]
+]
 
-p permutations([1, 2, 3])
-# -> [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]
+new_matrix1 = rotate90(matrix1)
+new_matrix2 = rotate90(matrix2)
+new_matrix3 = rotate90(rotate90(rotate90(rotate90(matrix2))))
 
-p permutations([1, 2, 3, 4])
-# -> [[1, 2, 3, 4], [1, 2, 4, 3], [1, 3, 2, 4],
-#     [1, 3, 4, 2], [1, 4, 2, 3], [1, 4, 3, 2],
-#     [2, 1, 3, 4], [2, 1, 4, 3], [2, 3, 1, 4],
-#     [2, 3, 4, 1], [2, 4, 1, 3], [2, 4, 3, 1],
-#     [3, 1, 2, 4], [3, 1, 4, 2], [3, 2, 1, 4],
-#     [3, 2, 4, 1], [3, 4, 1, 2], [3, 4, 2, 1],
-#     [4, 1, 2, 3], [4, 1, 3, 2], [4, 2, 1, 3],
-#     [4, 2, 3, 1], [4, 3, 1, 2], [4, 3, 2, 1]]
+p new_matrix1 == [[3, 4, 1], [9, 7, 5], [6, 2, 8]]
+p new_matrix2 == [[5, 3], [1, 7], [0, 4], [8, 2]]
+p new_matrix3 == matrix2

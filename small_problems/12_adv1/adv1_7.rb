@@ -1,34 +1,25 @@
 # adv1_7.rb
 
-# Write a method that takes two sorted Arrays as arguments, and returns a 
-# new Array that contains all elements from both arguments in sorted order.
+# Find and fix the bug, then explain why the buggy program printed the 
+# results it did.
 
-# You may not provide any solution that requires you to sort the result array. 
-# You must build the result array one element at a time in the proper order.
-
-# Your solution should not mutate the input arrays.
-
-def merge(array1, array2)
-  results = []
-
-  results = array1 + array2
-
-  10.times do
-    n = -1
-
-    10.times do
-      if results[n].to_i < results[n - 1].to_i
-        results[n], results[n - 1] = results[n - 1], results[n]
-      end
-
-      n -= 1
+def my_method(array)
+  if array.size == 1
+    [7 * array.first]
+  elsif array.size > 1
+    array.map do |value|
+      value * value
     end
+  else
+    []
   end
-
-  results
 end
 
-p merge([1, 5, 9], [2, 6, 8]) == [1, 2, 5, 6, 8, 9]
-p merge([1, 1, 3], [2, 2]) == [1, 1, 2, 2, 3]
-p merge([], [1, 4, 5]) == [1, 4, 5]
-p merge([1, 4, 5], []) == [1, 4, 5]
+p my_method([]) == []
+p my_method([3]) == [21]
+p my_method([3, 4]) == [9, 16]
+p my_method([5, 6, 7]) == [25, 36, 49]
+
+# The way the solution was set up before the 'else' condition never came into
+# play because an array can only be empty or not empty - there is nothing 'else'.
+
