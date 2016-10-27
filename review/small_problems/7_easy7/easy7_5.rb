@@ -9,7 +9,7 @@
 # between upper and lowercase.
 
 def staggered_case(string)
-    string.downcase.chars.each_with_index { |x, idx| x.upcase! if idx.even? }.join
+  string.downcase.chars.each_with_index { |x, idx| x.upcase! if idx.even? }.join
 end
 
 p staggered_case('I Love Launch School!') == 'I LoVe lAuNcH ScHoOl!'
