@@ -1,0 +1,3 @@
+#madlibs.rb
+
+This is text from a file. "#{variable}"
