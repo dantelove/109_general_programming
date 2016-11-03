@@ -12,10 +12,10 @@
 # integer_to_string from the previous exercise.
 
 def integer_to_string(num)
-  n = 1000
+  n = 100
   results = []
 
-  4.times do
+  3.times do
     integer, num = num.divmod(n)
     results << integer unless results.first == 0
     n /= 10
@@ -30,6 +30,6 @@ def signed_integer_to_string(num)
   integer_to_string(num)
 end
 
-p signed_integer_to_string(4321) #== '+4321'
-p signed_integer_to_string(-1230) #== '-123'
-p signed_integer_to_string(0) #== '0'
+p signed_integer_to_string(4321) == '+4321'
+p signed_integer_to_string(-123) == '-123'
+p signed_integer_to_string(0) == '0'
