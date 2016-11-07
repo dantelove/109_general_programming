@@ -1,18 +1,19 @@
-# easy3_6.rb
+# easy3_8.rb
 
-# The || operator returns true if either or both of its operands are true,
-# false if both operands are false. The && operator returns true if both of its 
-# operands are true, and false if either operand is false. This works great 
-# until you need only one of two conditions to be true, the so-called exclusive or.
+# Write a method that returns an Array that contains every other element of 
+# an Array that is passed in as an argument. The values in the returned list 
+# should be those values that are in the 1st, 3rd, 5th, and so on elements 
+# of the argument Array.
 
-# In this exercise, you will write a method named xor that takes two arguments, 
-# and returns true if exactly one of its arguments is true, false otherwise.
-
-def xor?(boolean1, boolean2)
-  boolean1 && !boolean2 || !boolean1 && boolean2
+def oddities(array)
+  results = []
+  
+  array.each_with_index { |x, idx| results << x if idx.even? }
+  
+  results
 end
 
-p xor?(5.even?, 4.even?) == true
-p xor?(5.odd?, 4.odd?) == true
-p xor?(5.odd?, 4.even?) == false
-p xor?(5.even?, 4.odd?) == false
+p oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
+p oddities(['abc', 'def']) == ['abc']
+p oddities([123]) == [123]
+p oddities([]) == []

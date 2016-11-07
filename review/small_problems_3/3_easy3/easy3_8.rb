@@ -1,19 +1,14 @@
-# easy3_8.rb
+# easy3_9.rb
 
-# Write a method that returns an Array that contains every other element of 
-# an Array that is passed in as an argument. The values in the returned list 
-# should be those values that are in the 1st, 3rd, 5th, and so on elements 
-# of the argument Array.
+# Write a method that returns true if the string passed as an argument 
+# is a palindrome, false otherwise. (A palindrome reads the same forwards 
+# and backwards.) Case matters, and all characters should be considered.
 
-def oddities(array)
-  results = []
-  
-  array.each_with_index { |x, idx| results << x if idx.even? }
-  
-  results
+def palindrome?(string)
+  string == string.reverse
 end
 
-p oddities([2, 3, 4, 5, 6]) == [2, 4, 6]
-p oddities(['abc', 'def']) == ['abc']
-p oddities([123]) == [123]
-p oddities([]) == []
+p palindrome?('madam') == true
+p palindrome?('Madam') == false          # (case matters)
+p palindrome?("madam i'm adam") == false # (all characters matter)
+p palindrome?('356653') == true
